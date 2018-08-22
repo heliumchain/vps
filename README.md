@@ -50,7 +50,7 @@ Select Ubuntu 16.04.
 
 ## VPS size
 
-The 25 GB SSD / 1024MBB Memory instance is enough for 2-3 masternodes. You may need more memory as the Helium blockchain grows over time, or if you want to run more masternodes.
+The 25 GB SSD / 1024MB Memory instance is enough for 2-3 masternodes. You may need more memory as the Helium blockchain grows over time, or if you want to run more masternodes.
 
 <img src="docs/images/masternode_vps/vps-size.png" alt="VPS sizing" class="inline"/>
 
