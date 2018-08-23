@@ -164,7 +164,7 @@ Click the Request payment button, and copy the address.
 
 <img src="docs/images/masternode_vps/step1-newaddress.png" alt="making new address" class="inline"/>
 
-Now go to the Send tab, paste the copied address, and send *exactly* 10,000 PHR to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one.
+Now go to the Send tab, paste the copied address, and send *exactly* 1,000 HLM to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one.
 
 <img src="docs/images/masternode_vps/step1-send10kphr.png" alt="sending 10kPHR" class="inline"/>
 
