@@ -164,7 +164,7 @@ Click the Request payment button, and copy the address.
 
 <img src="docs/images/masternode_vps/step1-newaddress.png" alt="making new address" class="inline"/>
 
-Now go to the Send tab, paste the copied address, and send *exactly* 1,000 HLM to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one.
+Now go to the Send tab, paste the copied address, and send *exactly* 1000 HLM to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one.
 
 <img src="docs/images/masternode_vps/step1-send10kphr.png" alt="sending 10kPHR" class="inline"/>
 
@@ -194,7 +194,7 @@ masternode outputs
 
 The long string of characters is the *Transaction ID* for your masternode collateral transaction. The number after the long string is the *Index*. Copy and paste these into the text file next to the private key you generated in Step 2.
 
-If you have multiple masternodes in the same wallet and have done the 10,000 PHR transactions for each of them, masternode outputs will display transaction IDs and indexes for each one. You can choose which private key to go with each transaction ID and index, as long as they are all different, and you make sure the corresponding lines in masternode.conf and the VPS helium configuration files match (see below).
+If you have multiple masternodes in the same wallet and have done the 1000 HLM transactions for each of them, masternode outputs will display transaction IDs and indexes for each one. You can choose which private key to go with each transaction ID and index, as long as they are all different, and you make sure the corresponding lines in masternode.conf and the VPS helium configuration files match (see below).
 
 ## End of installations
 When the script finishes, it will look similar to this:
