@@ -219,7 +219,7 @@ After typing the nano command, you will see something similar to this.
 
 <img src="docs/images/masternode_vps/insert-your-masternode-private-key.png" alt="add private key" class="inline"/>
 
-Copy the masternode private key from the text file you saved it in, and replace HERE_GOES_YOUR_MASTERNODE_KEY_FOR_MASTERNODE_helium_1 with that private key (this typically begins with an 8).
+Copy the masternode private key from the text file you saved it in, and replace HERE_GOES_YOUR_MASTERNODE_KEY_FOR_MASTERNODE_helium_1 with that private key (It starts with a 7.
 
 While you have this file opened, copy the information that follows after masternodeaddr=, starting with the open bracket. This is the masternode's IPv6 address and port, and will be needed for the wallet's masternode.conf file.
 
@@ -271,36 +271,36 @@ To check the status of your masternode, please enter this command in the VPS ter
 The output will look like this:
 ```
 {
-  "version": 1010000,
-  "protocolversion": 7002,
+  "version": 150200,
+  "protocolversion": 71029,
   "walletversion": 61000,
   "balance": 0.00000000,
-  "privatesend_balance": 0.00000000,
-  "blocks": 176209,
+  "zerocoinbalance": 0.00000000,
+  "blocks": 47508,
   "timeoffset": 0,
-  "connections": 44,
+  "connections": 4,
   "proxy": "",
-  "difficulty": 42882.54964804553,
+  "difficulty": 24703.78796245168,
   "testnet": false,
-  "moneysupply" : 11814171.53907114,
-  "zPHRsupply" : {
-      "1" : 263.00000000,
-      "5" : 135.00000000,
-      "10" : 500.00000000,
-      "50" : 700.00000000,
-      "100" : 1300.00000000,
-      "500" : 5000.00000000,
-      "1000" : 11000.00000000,
-      "5000" : 90000.00000000,
-      "total" : 108898.00000000
+  "moneysupply": 8994482.77956084,
+  "zHLMsupply": {
+    "1": 0.00000000,
+    "5": 0.00000000,
+    "10": 0.00000000,
+    "50": 0.00000000,
+    "100": 0.00000000,
+    "500": 0.00000000,
+    "1000": 0.00000000,
+    "5000": 0.00000000,
+    "total": 0.00000000
   },
-  "keypoololdest" : 1507302593,
-  "keypoolsize" : 1001,
-  "paytxfee" : 0.00000000,
-  "relayfee" : 0.00010000,
-  "staking status" : "Staking Not Active",
-  "errors" : ""
-}
+  "keypoololdest": 1537411480,
+  "keypoolsize": 1000,
+  "unlocked_until": 0,
+  "paytxfee": 0.00000000,
+  "relayfee": 0.00010000,
+  "staking status": "Staking Not Active",
+  "errors": ""
 ```
 
 We're looking at the *blocks*, and need that to be the latest block in the blockchain. You can check your local wallet to see the latest block by hovering over the green check mark.
