@@ -263,11 +263,16 @@ If you are running multiple masternodes, you need to add one of these lines for 
 ## Check syncing status of masternode
 The masternode cannot complete activation until it is fully synced with the Helium blockchain network.
 
-To check the status of your masternode, please enter this command in the VPS terminal. If you have multiple masternodes on the same VPS, you can change n1 to n2 etc. below to check the status of each one.
-
+To check the status of your masternode, please enter this command in the VPS terminal. 
 ```bash
 /usr/local/bin/helium-cli -conf=/etc/masternodes/helium_n1.conf getinfo
 ```
+If you have multiple masternodes on the same VPS, you can change n1 to n2 etc. So for node number two type:
+```bash
+/usr/local/bin/helium-cli -conf=/etc/masternodes/helium_n2.conf getinfo
+```
+Etcetera.
+
 The output will look like this:
 ```
 {
