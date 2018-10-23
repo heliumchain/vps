@@ -15,6 +15,8 @@ Some notes and requirements:
 * Script has only been tested on a Vultr VPS, but should work almost anywhere where IPv6 addresses are available
 * Currently only Ubuntu 16.04 Linux is supported
 * This script needs to run as root or with sudo, the masternodes will and should not!
+* You may want to do the "Configure Helium Wallet" section first as it'll simplify masternode setup.
+* If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the HLM. It's faster and also makes sure the 1000HLM transfers stay in one piece.
 
 This project was forked from https://github.com/phoreproject/vps (and comes with their screenshots) @marsmensch (Florian) is the primary author behind this VPS installation script for masternodes. If you would like to donate to him, you can use the BTC address below
 
