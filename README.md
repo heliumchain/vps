@@ -194,6 +194,7 @@ sudo systemctl start helium_n*
 
 Start the new masternodes from the masternodes on your local wallet.
 
+
 ## Configure Helium Wallet
 ### Step1 - Create Collateral Transaction
 Once the wallet is open on your local computer, generate a new receive address and label it however you want to identify your masternode rewards (e.g., Helium-MN-1). This label will show up in your transactions each time you receive a block reward.
