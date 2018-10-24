@@ -166,9 +166,11 @@ Open your local wallet's debug console and run ```masternode genkey``` for each 
 
 Login to your VPS and run the Nodemaster script:
 
-```cd vps
+```bash
+cd vps
 ```
-```sudo ./install.sh -p helium -c *
+```bash
+sudo ./install.sh -p helium -c *
 ```
 
 Where `*`  is total number of masternode desired on the VPS. This adds folders and files to run new nodes. Running the script again doesn't touch the helium daemon or previous installed nodes.
@@ -183,9 +185,11 @@ Save and restart the wallet.
 
 On your VPS, start every new masternode with:
 
-```sudo systemctl enable helium_n*        
+```bash
+sudo systemctl enable helium_n*        
 ``` 
-```sudo systemctl start helium_n*
+```bash
+sudo systemctl start helium_n*
 ```
 
 Start the new masternodes from the masternodes on your local wallet.
