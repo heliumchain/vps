@@ -342,7 +342,7 @@ If you are setting up multiple masternodes, repeat this for each one. You can no
 
 It should say ENABLED, and within an hour, the timer in the Active column should start increasing.
 
-Your Helium masternode is now set up and running! Depending on how many masternodes there are, it may take 12-24 hours before you see your first masternode reward--this is normal and rewards should come at more regular intervals after the first one.
+Your Helium masternode is now set up and running! Depending on how many masternodes there are, it may take up to 72 hours before you see your first masternode reward--this is normal and rewards should come at more regular intervals after the first one.
 
 <img src="docs/images/masternode_vps/reward.png" alt="rewards" class="inline"/>
 
