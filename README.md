@@ -127,7 +127,7 @@ Using this command, you can skip "Configure masternode configuration files" belo
 
 This prepares the system and installs the Helium Masternode daemon. This includes downloading the latest Helium masternode release, creating a swap file, configuring the firewall, and compiling the Helium Masternode from source. This process takes about 10-15 minutes.
 
-<img src="docs/images/masternode_vps/install-the-desired-masternode-and-amount.png" alt="VPS configuration" class="inline"/>
+<img src="docs/images/masternode_vps/install.png" alt="VPS configuration" class="inline"/>
 
 While that is underway, go back to your local desktop and open helium-qt.
 
@@ -164,11 +164,11 @@ Once the wallet is open on your local computer, generate a new receive address a
 
 Click the Request payment button, and copy the address.
 
-<img src="docs/images/masternode_vps/step1-newaddress.png" alt="making new address" class="inline"/>
+<img src="docs/images/masternode_vps/request.png" alt="making new address" class="inline"/>
 
 Now go to the Send tab, paste the copied address, and send *exactly* 1000 HLM to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one.
 
-<img src="docs/images/masternode_vps/step1-send10kphr.png" alt="sending 10kPHR" class="inline"/>
+<img src="docs/images/masternode_vps/send.png" alt="sending 10kPHR" class="inline"/>
 
 ### Step 2 - Generate Masternode Private Key
 Go to the **[Tools > Debug Console]** and enter these commands below:
