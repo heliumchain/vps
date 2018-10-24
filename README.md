@@ -110,7 +110,7 @@ ssh -l root <IP address>
 
 Login to your newly installed node as "root".
 
-<img src="docs/images/masternode_vps/first-ssh-session.png" alt="VPS sizing" class="inline"/>
+<img src="docs/images/masternode_vps/login.png" alt="VPS sizing" class="inline"/>
 
 Enter this command to copy the Masternode installation script and install a single Helium Masternode:
 
