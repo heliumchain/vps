@@ -312,7 +312,7 @@ The output will look like this:
 
 We're looking at the *blocks*, and need that to be the latest block in the blockchain. You can check your local wallet to see the latest block by hovering over the green check mark.
 
-<img src="docs/images/masternode_vps/check-blocks-number.png" alt="checking syncing status" class="inline"/>
+<img src="docs/images/masternode_vps/status.png" alt="checking syncing status" class="inline"/>
 
 Once your masternode has synced up to the latest block, go to next step. The syncing process may take 15-30 minutes or more as the Helium blockchain grows. You can keep checking progress with the command above, by pressing the up arrow and Enter to repeat it.
 
@@ -343,7 +343,7 @@ It should say ENABLED, and within an hour, the timer in the Active column should
 
 Your Helium masternode is now set up and running! Depending on how many masternodes there are, it may take 12-24 hours before you see your first masternode reward--this is normal and rewards should come at more regular intervals after the first one.
 
-<img src="docs/images/masternode_vps/rewards.png" alt="rewards" class="inline"/>
+<img src="docs/images/masternode_vps/reward.png" alt="rewards" class="inline"/>
 
 ## Issues and Questions
 Please open a GitHub Issue if there are problems with this installation method. If you can't figure it out just ask someone in the Helium channel.
