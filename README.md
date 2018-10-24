@@ -337,6 +337,7 @@ If everything was setup correctly, after entering the command you will see somet
 }
 ```
 If you are setting up multiple masternodes, repeat this for each one. You can now close the debug console, return the Masternodes tab and check the status:
+
 <img src="docs/images/masternode_vps/enabled.png" alt="checking syncing status" class="inline"/>
 
 It should say ENABLED, and within an hour, the timer in the Active column should start increasing.
