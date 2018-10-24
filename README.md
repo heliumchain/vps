@@ -201,7 +201,7 @@ If you have multiple masternodes in the same wallet and have done the 1000 HLM t
 ## End of installations
 When the script finishes, it will look similar to this:
 
-<img src="docs/images/masternode_vps/end-of-installation.png" alt="installation ended" class="inline"/>
+<img src="docs/images/masternode_vps/end.png" alt="installation ended" class="inline"/>
 
 You only have a few steps remaining to complete your masternode configuration.
 ## Configure masternode configuration files
@@ -337,7 +337,7 @@ If everything was setup correctly, after entering the command you will see somet
 }
 ```
 If you are setting up multiple masternodes, repeat this for each one. You can now close the debug console, return the Masternodes tab and check the status:
-<img src="docs/images/masternode_vps/check-masternode-status.png" alt="checking syncing status" class="inline"/>
+<img src="docs/images/masternode_vps/enabled.png" alt="checking syncing status" class="inline"/>
 
 It should say ENABLED, and within an hour, the timer in the Active column should start increasing.
 
