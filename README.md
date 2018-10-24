@@ -158,6 +158,34 @@ git clone https://github.com/trollboxteela/vps.git && cd vps && ./install.sh -p 
 
 The project is configured to use the latest official release of the Helium masternode code, and we will update this project each time a new release is issued, but without downloading the latest version of this project and using the -u parameter, the script will not update an existing Helium node that is already installed.
 
+### Adding Masternodes on an existing installation
+
+You can add masternodes to a VPS that already has several running. You can do this by following the below steps. It will not affect the masternodes that are already running on your VPS.
+
+Open your local wallet's debug console and run ```masternode genkey``` for each new masternode. Send the collateral transactions and note the ```masternode outputs``` for every transaction.
+
+Login to your VPS and run the Nodemaster script:
+
+```cd vps```
+```sudo ./install.sh -p helium -c *```
+
+Where `*`  is total number of masternode desired on the VPS. This adds folders and files to run new nodes. Running the script again doesn't touch the helium daemon or previous installed nodes.
+
+Edit `/etc/masternodes/helium_n*.conf` and add the `masternodeprivkey` for every new node. Copy assigned VPS_IP found in every .conf. `*` here is the number of every new node. Nodemaster numbers them helium_n1, helium_n2, helium_n3 etcetera.
+
+Edit your local masternode.conf and add a line for every new masternode with:
+
+`"alias" "VPS_IP" "masternodeprivkey" "txhash" "index"`
+
+Save and restart the wallet.
+
+On your VPS, start every new master node with:
+
+```sudo systemctl enable helium_n*``` //creates symlink to helium_.n*.service
+```sudo systemctl start helium_n*```  //starts masternode
+
+Start the new masternodes from the masternodes on your local wallet.
+
 ## Configure Helium Wallet
 ### Step1 - Create Collateral Transaction
 Once the wallet is open on your local computer, generate a new receive address and label it however you want to identify your masternode rewards (e.g., Helium-MN-1). This label will show up in your transactions each time you receive a block reward.
