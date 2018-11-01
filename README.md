@@ -144,6 +144,12 @@ If you already have your masternode private keys, you can add them as shown belo
 ```bash
 git clone https://github.com/trollboxteela/vps.git && cd vps && ./install.sh -p helium -c 3 --key **PRIVATE KEY 01** --key2 **PRIVATE KEY 02** --key3 **PRIVATE KEY 03**
 ```
+Replace every `**PRIVATE KEY 01**` etc entry by your private key. So
+
+```bash
+git clone https://github.com/trollboxteela/vps.git && cd vps && ./install.sh -p helium -c 5 --key1 7QgVciKfm43fdRxQFLKYn76f3d78phUWRWajUfWGMMHUv5SuUt5 --key2 7RNz4BvxsadGYedHr5KTZ9Wha45gbEbmg9eaXuwXjwuNJZBPsJC --key3 7Qy9bPyZExu78fd5eowoGKxpu7ExvKzsFxjeaaNEXBPRsoYukN
+```
+
 Using this command, you can skip the step for "Configure masternode configuration files", because the command above adds the masternode private keys to the masternode configuration files.
 
 
