@@ -115,16 +115,17 @@ function install_packages() {
     automake libcurl4-openssl-dev libboost-all-dev libssl-dev libdb++-dev \
     make autoconf automake libtool git apt-utils libprotobuf-dev pkg-config \
     libcurl3-dev libudev-dev libqrencode-dev bsdmainutils pkg-config libssl-dev \
-    libgmp3-dev libevent-dev jp2a pv virtualenv		&>> ${SCRIPT_LOGFILE}
+    libgmp3-dev libevent-dev jp2a pv virtualenv lsb-release figlet update-motd		&>> ${SCRIPT_LOGFILE}
 }
 #add custom logo to VPS login
-chmod 644 /etc/update-motd.d/00-header
-chmod 644 /etc/update-motd.d/10-help-text
-chmod 644 /etc/update-motd.d/91-release-upgrade
-touch /etc/update-motd.d/01-custom-logo
-chmod 755 /etc/update-motd.d/01-custom-logo
-chown root:root /etc/update-motd.d/01-custom-logo
-cat customlogo > /etc/update-motd.d/01-custom-logo
+rm -r /etc/update-motd.d/
+mkdir /etc/update-motd.d/
+touch /etc/update-motd.d/00-header ; touch /etc/update-motd.d/10-sysinfo ; touch /etc/update-motd.d/90-footer
+chmod +x /etc/update-motd.d/*
+rm /etc/motd.dynamic
+cat motdcustom/00-header > /etc/update-motd.d/00-header
+cat motdcustom/10-sysinfo > /etc/update-motd.d/10-sysinfo
+cat motdcustom/90-footer > /etc/update-motd.d/90-footer
 # /* no parameters, creates and activates a swapfile since VPS servers often do not have enough RAM for compilation */
 #
 function swaphack() {
