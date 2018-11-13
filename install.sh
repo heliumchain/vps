@@ -117,7 +117,14 @@ function install_packages() {
     libcurl3-dev libudev-dev libqrencode-dev bsdmainutils pkg-config libssl-dev \
     libgmp3-dev libevent-dev jp2a pv virtualenv landscape-common	&>> ${SCRIPT_LOGFILE}
 }
-
+# create custom login logo
+chmod 644 /etc/update-motd.d/00-header
+chmod 644 /etc/update-motd.d/10-help-text
+chmod 644 /etc/update-motd.d/91-release-upgrade
+touch /etc/update-motd.d/01-custom-logo
+chmod 755 /etc/update-motd.d/01-custom-logo
+chown root:root /etc/update-motd.d/01-custom-logo
+cat customlogo > /etc/update-motd.d/01-custom-logo
 #
 # /* no parameters, creates and activates a swapfile since VPS servers often do not have enough RAM for compilation */
 #
