@@ -38,7 +38,7 @@ printf " ${color5} dddy       +++++++       oddd ${color11}  Hostname: $(hostnam
 printf " ${color5} dddy                     oddd ${color11}  Version: `lsb_release -s -d`${nocolor}\n"
 printf " ${color5} dddy                     oddd ${color11}  `uname -srmo`${nocolor}\n"
 printf " ${color5} dddy      odddddddy      oddd ${color11}\n"
-printf " ${color5} dddh+     odddddddy      oddd ${color11}  Number of Masternodes: $nodes\n"
+printf " ${color5} dddh+     odddddddy      oddd ${color11}  Masternodes on this server: $nodes\n"
 printf " ${color5} ddddddyso+odddddddy      oddd ${color11}  External IP: `ifconfig $(route | grep default | awk '{ print $8 }') | grep "inet addr" | awk -F: '{print $2}' | awk '{print $1}'` \n"
 printf " ${color5} ddddddddddddddddddy      oddd ${nocolor}\n"
 printf " ${color5} ddddddddddddddddddy      oddd ${color13}  `date +"%A, %e %B %Y, %r"`${nocolor}\n"
