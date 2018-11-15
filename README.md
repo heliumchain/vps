@@ -12,7 +12,7 @@ This masternode installation script vastly simplifies the setup of a Helium mast
 
 Some notes and requirements:
 
-* Script has only been tested on a Vultr VPS, but should work almost anywhere where IPv6 addresses are available
+* Script has only been tested on Vultr & DO, but should work almost anywhere where IPv6 addresses are available
 * Currently only Ubuntu 16.04 Linux is supported
 * This script needs to run as root or with sudo, the masternodes will and should not!
 * You may want to do the "Configure Helium Wallet" section first as it'll simplify masternode setup.
