@@ -126,6 +126,7 @@ rm /etc/motd.dynamic
 cat motdcustom/00-header > /etc/update-motd.d/00-header
 cat motdcustom/10-sysinfo > /etc/update-motd.d/10-sysinfo
 cat motdcustom/90-footer > /etc/update-motd.d/90-footer
+systemctl restart sshd
 # /* no parameters, creates and activates a swapfile since VPS servers often do not have enough RAM for compilation */
 #
 function swaphack() {
