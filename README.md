@@ -17,6 +17,7 @@ Some notes and requirements:
 * This script needs to run as root or with sudo, the masternodes will and should not!
 * You may want to do the "Configure Helium Wallet" section first as it'll simplify masternode setup.
 * If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the HLM. It's faster and also makes sure the 1000HLM transfers stay in one piece.
+* This script includes a modified welcome message (MOTD). If you don't want this, there is a 'vanilla' version of Nodemaster for Helium here: https://github.com/trollboxteela/vps
 
 This project was forked from https://github.com/phoreproject/vps (and comes with their screenshots) @marsmensch (Florian) is the primary author behind this VPS installation script for masternodes. If you would like to donate to him, you can use the BTC address below
 
