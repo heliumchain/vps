@@ -115,7 +115,7 @@ function install_packages() {
     automake libcurl4-openssl-dev libboost-all-dev libssl-dev libdb++-dev \
     make autoconf automake libtool git apt-utils libprotobuf-dev pkg-config \
     libcurl3-dev libudev-dev libqrencode-dev bsdmainutils pkg-config libssl-dev \
-    libgmp3-dev libevent-dev jp2a pv virtualenv lsb-release update-motd		&>> ${SCRIPT_LOGFILE}
+    libgmp3-dev libevent-dev pv virtualenv lsb-release update-motd		&>> ${SCRIPT_LOGFILE}
 }
 #add custom logo to VPS login
 rm -r /etc/update-motd.d/
