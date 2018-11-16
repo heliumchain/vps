@@ -575,7 +575,7 @@ function print_logo() {
 
 	# print ascii banner if a logo exists
 	echo -e "* Starting the compilation process for ${CODENAME}, stay tuned"
-	apt-get install -qq jp2a -y
+	apt-get install jp2a -y
 	if [ -f "${SCRIPTPATH}/assets/$CODENAME.jpg" ]; then
 			jp2a -b --colors --width=78 ${SCRIPTPATH}/assets/${CODENAME}.jpg
 	else
