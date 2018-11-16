@@ -115,7 +115,7 @@ function install_packages() {
     automake libcurl4-openssl-dev libboost-all-dev libssl-dev libdb++-dev \
     make autoconf automake libtool git apt-utils libprotobuf-dev pkg-config \
     libcurl3-dev libudev-dev libqrencode-dev bsdmainutils pkg-config libssl-dev \
-    libgmp3-dev libevent-dev pv virtualenv j2pa lsb-release update-motd		&>> ${SCRIPT_LOGFILE}
+    libgmp3-dev libevent-dev jp2a pv virtualenv lsb-release figlet update-motd		&>> ${SCRIPT_LOGFILE}
 }
 #add custom logo to VPS login
 rm -r /etc/update-motd.d/
@@ -354,16 +354,13 @@ function create_systemd_configuration() {
 			[Unit]
 			Description=${CODENAME} distributed currency daemon
 			After=network.target
-
 			[Service]
 			User=${MNODE_USER}
 			Group=${MNODE_USER}
-
 			Type=forking
 			PIDFile=${MNODE_DATA_BASE}/${CODENAME}${NUM}/${CODENAME}.pid
 			ExecStart=${MNODE_DAEMON} -daemon -pid=${MNODE_DATA_BASE}/${CODENAME}${NUM}/${CODENAME}.pid \
 			-conf=${MNODE_CONF_BASE}/${CODENAME}_n${NUM}.conf -datadir=${MNODE_DATA_BASE}/${CODENAME}${NUM}
-
 			Restart=always
 			RestartSec=5
 			PrivateTmp=true
@@ -371,7 +368,6 @@ function create_systemd_configuration() {
 			TimeoutStartSec=5s
 			StartLimitInterval=120s
 			StartLimitBurst=15
-
 			[Install]
 			WantedBy=multi-user.target
 		EOF
