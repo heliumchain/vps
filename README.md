@@ -133,7 +133,7 @@ This prepares the system and installs the Helium Masternode daemon. This include
 
 While that is underway, go back to your local desktop and open helium-qt.
 
-### More complex situations (ignore if you are installing a single masternode on a new VPS)
+### Multiple Masternodes on one VPS (ignore if you are installing a single masternode on a new VPS)
 
 If you wish to install more than one masternode on the same VPS, you can add a -c parameter to tell the script how many to configure, so for example this would install three Helium masternodes (all entered on one line):
 
@@ -153,6 +153,8 @@ git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p he
 ```
 
 Using this command, you can skip the step for "Configure masternode configuration files", because the command above adds the masternode private keys to the masternode configuration files.
+
+Note that you can only install 10 masternodes at a time using this command.
 
 
 If you are upgrading your masternode(s) to a new release, you should first remove the old version of the VPS script so that the new one you download is tagged with the latest version, and then you add a -u parameter to upgrade existing nodes:
