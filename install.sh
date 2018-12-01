@@ -628,9 +628,10 @@ function build_mn_from_source() {
 function final_call() {
 	# note outstanding tasks that need manual work
     echo "************! ALMOST DONE !******************************"
-	echo "There is still work to do in the configuration templates."
+	echo "There might still be work to do in the configuration templates."
 	echo "These are located at ${MNODE_CONF_BASE}, one per masternode."
-	echo "Add your masternode private keys now."
+	echo "If you added your keys at the beginning: you are good to go!."
+	echo "Otherwise: add your masternode private keys now."
 	echo "eg in /etc/masternodes/${CODENAME}_n1.conf"
 	echo ""
     echo "=> All configuration files are in: ${MNODE_CONF_BASE}"
