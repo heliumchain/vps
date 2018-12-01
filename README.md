@@ -124,6 +124,7 @@ If you have your masternode private key, please use this (you can generate maste
 ```bash
 git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p helium -k **PRIVATE KEY**
 ```
+Replace ```**PRIVATE KEY**``` with your own masternode privkey.
 Using this command, you can skip "Configure masternode configuration files" below, because the command abopve adds the masternode private key to the masternode configuration files.
 
 This prepares the system and installs the Helium Masternode daemon. This includes downloading the latest Helium masternode release, creating a swap file, configuring the firewall, and compiling the Helium Masternode from source. This process takes about 10-15 minutes.
@@ -145,7 +146,7 @@ If you already have your masternode private keys, you can add them as shown belo
 ```bash
 git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p helium -c 3 --key **PRIVATE KEY 01** --key2 **PRIVATE KEY 02** --key3 **PRIVATE KEY 03**
 ```
-Replace every `**PRIVATE KEY 01**` etc entry by your private key. So
+Replace every `**PRIVATE KEY 01**` etc entry by your masternode privkey. So
 
 ```bash
 git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p helium -c 3 --key1 7QgVciKfm43fdRxQFLKYn76f3d78phUWRWajUfWGMMHUv5SuUt5 --key2 7RNz4BvxsadGYedHr5KTZ9Wha45gbEbmg9eaXuwXjwuNJZBPsJC --key3 7Qy9bPyZExu78fd5eowoGKxpu7ExvKzsFxjeaaNEXBPRsoYukN
