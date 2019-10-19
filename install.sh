@@ -667,10 +667,13 @@ function prepare_mn_interfaces() {
     # * ens3 (vultr) w/ a fallback to "eth0" (Hetzner, DO & Linode w/ IPv4 only)
     #
 
-    # check for the default interface status
+    # check for the default interface status; support additional masternode hosting providers
     if [ ! -f /sys/class/net/${ETH_INTERFACE}/operstate ]; then
-        echo "Default interface doesn't exist, switching to eth0"
-        export ETH_INTERFACE="eth0"
+    echo -e "Default interface ${ETH_INTERFACE} doesn't exist;"
+    echo -e " --> Searching for existing interface "
+	if [ -f /sys/class/net/eth0/operstate ]; then export ETH_INTERFACE="eth0" ; echo -e "Found a match; we are going to use eth0 instead" ; fi
+	if [ -f /sys/class/net/ens4/operstate ]; then export ETH_INTERFACE="ens4" ; echo -e "Found a match; we are going to use ens4 instead" ; fi
+	if [ -f /sys/class/net/net0/operstate ]; then export ETH_INTERFACE="net0" ; echo -e "Found a match; we are going to use net0 instead" ; fi
     fi
 
     # get the current interface state
