@@ -1,12 +1,12 @@
-# Helium Masternode VPS Installation
+# sQuorum Masternode VPS Installation
 
-This masternode installation script vastly simplifies the setup of a Helium masternode running on a virtual private server (VPS), and it also adds a number of other powerful features, including:
+This masternode installation script vastly simplifies the setup of a sQuorum masternode running on a virtual private server (VPS), and it also adds a number of other powerful features, including:
 
 * IPv6 Support
-* Installs 1-100 (or more!) Helium masternodes in parallel on one VPS, with individual helium.conf and data directories
-* It can install masternodes for other coins on the same VPS as Helium
+* Installs 1-100 (or more!) sQuorum masternodes in parallel on one VPS, with individual squorum.conf and data directories
+* It can install masternodes for other coins on the same VPS as sQuorum
 * 100% auto-compilation and 99% of configuration on the masternode side of things
-* Automatically compiling from the latest Helium release tag, or another tag can be specified
+* Automatically compiling from the latest sQuorum release tag, or another tag can be specified
 * Some security hardening is done, including firewalling and a separate user, increasing security
 * Automatic startup for all masternode daemons
 
@@ -15,9 +15,9 @@ Some notes and requirements:
 * Script has only been tested on Vultr & DO, but should work almost anywhere where IPv6 addresses are available
 * Currently only Ubuntu 16.04 Linux is supported
 * This script needs to run as root or with sudo, the masternodes will and should not!
-* You may want to do the "Configure Helium Wallet" section first as it'll simplify masternode setup.
+* You may want to do the "Configure sQuorum Wallet" section first as it'll simplify masternode setup.
 * If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the HLM. It's faster and also makes sure the 1000HLM transfers stay in one piece.
-* This script includes [pimpmynode](https://github.com/TeelaBrown/pimpmynode) by AKcryptoGUY and TeelaBrown. It will modify the VPS welcome message. If you don't want this, there is a 'vanilla' version of Nodemaster for Helium here: https://github.com/trollboxteela/vps
+* This script includes [pimpmynode](https://github.com/TeelaBrown/pimpmynode) by AKcryptoGUY and TeelaBrown. It will modify the VPS welcome message. If you don't want this, there is a 'vanilla' version of Nodemaster for sQuorum here: https://github.com/trollboxteela/vps
 
 This project was forked from https://github.com/phoreproject/vps (and comes with their screenshots) @marsmensch (Florian) is the primary author behind this VPS installation script for masternodes. If you would like to donate to him, you can use the BTC address below
 
@@ -41,7 +41,7 @@ First, create a new VPS by clicking that small "+" button.
 
 ## Location choice
 
-You can choose any location. You may wish to have it hosted in a city/country near you, or choose a different area to help with the global decentralization of the Helium masternode network.
+You can choose any location. You may wish to have it hosted in a city/country near you, or choose a different area to help with the global decentralization of the sQuorum masternode network.
 
 <img src="docs/images/masternode_vps/location-choice.png" alt="VPS location choice" class="inline"/>
 
@@ -53,7 +53,7 @@ Select Ubuntu 16.04.
 
 ## VPS size
 
-The 25 GB SSD / 1024MB Memory instance is enough for 2-3 masternodes. You may need more memory as the Helium blockchain grows over time, or if you want to run more masternodes.
+The 25 GB SSD / 1024MB Memory instance is enough for 2-3 masternodes. You may need more memory as the sQuorum blockchain grows over time, or if you want to run more masternodes.
 
 <img src="docs/images/masternode_vps/vps-size.png" alt="VPS sizing" class="inline"/>
 
@@ -113,43 +113,43 @@ Login to your newly installed node as "root".
 
 <img src="docs/images/masternode_vps/login.png" alt="VPS sizing" class="inline"/>
 
-Enter this command to copy the Masternode installation script and install a single Helium Masternode:
+Enter this command to copy the Masternode installation script and install a single sQuorum Masternode:
 
 ```bash
-git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p helium
+git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p squorum
 ```
 
 If you have your masternode private key, please use this (you can generate masternode private key with Step 2 below).
 
 ```bash
-git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p helium -k **PRIVATE KEY**
+git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p squorum -k **PRIVATE KEY**
 ```
 Replace ```**PRIVATE KEY**``` with your own masternode privkey.
 Using this command, you can skip "Configure masternode configuration files" below, because the command abopve adds the masternode private key to the masternode configuration files.
 
-This prepares the system and installs the Helium Masternode daemon. This includes downloading the latest Helium masternode release, creating a swap file, configuring the firewall, and compiling the Helium Masternode from source. This process takes about 10-15 minutes.
+This prepares the system and installs the sQuorum Masternode daemon. This includes downloading the latest sQuorum masternode release, creating a swap file, configuring the firewall, and compiling the sQuorum Masternode from source. This process takes about 10-15 minutes.
 
 <img src="docs/images/masternode_vps/install.png" alt="VPS configuration" class="inline"/>
 
-While that is underway, go back to your local desktop and open helium-qt.
+While that is underway, go back to your local desktop and open squorum-qt.
 
 ### Multiple Masternodes on one VPS (ignore if you are installing a single masternode on a new VPS)
 
-If you wish to install more than one masternode on the same VPS, you can add a -c parameter to tell the script how many to configure, so for example this would install three Helium masternodes (all entered on one line):
+If you wish to install more than one masternode on the same VPS, you can add a -c parameter to tell the script how many to configure, so for example this would install three sQuorum masternodes (all entered on one line):
 
 ```bash
-git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p helium -c 3
+git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p squorum -c 3
 ```
 
 If you already have your masternode private keys, you can add them as shown below (all entered on one line):
 
 ```bash
-git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p helium -c 3 --key **PRIVATE KEY 01** --key2 **PRIVATE KEY 02** --key3 **PRIVATE KEY 03**
+git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p squorum -c 3 --key **PRIVATE KEY 01** --key2 **PRIVATE KEY 02** --key3 **PRIVATE KEY 03**
 ```
 Replace every `**PRIVATE KEY 01**` etc entry by your masternode privkey. So
 
 ```bash
-git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p helium -c 3 --key1 7QgVciKfm43fdRxQFLKYn76f3d78phUWRWajUfWGMMHUv5SuUt5 --key2 7RNz4BvxsadGYedHr5KTZ9Wha45gbEbmg9eaXuwXjwuNJZBPsJC --key3 7Qy9bPyZExu78fd5eowoGKxpu7ExvKzsFxjeaaNEXBPRsoYukN
+git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p squorum -c 3 --key1 7QgVciKfm43fdRxQFLKYn76f3d78phUWRWajUfWGMMHUv5SuUt5 --key2 7RNz4BvxsadGYedHr5KTZ9Wha45gbEbmg9eaXuwXjwuNJZBPsJC --key3 7Qy9bPyZExu78fd5eowoGKxpu7ExvKzsFxjeaaNEXBPRsoYukN
 ```
 
 Using this command, you can skip the step for "Configure masternode configuration files", because the command above adds the masternode private keys to the masternode configuration files.
@@ -163,10 +163,10 @@ If you are upgrading your masternode(s) to a new release, you should first remov
 rm -rf /root/
 ```
 ```bash
-git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p helium -u
+git clone https://github.com/heliumchain/vps.git && cd vps && ./install.sh -p squorum -u
 ```
 
-The project is configured to use the latest official release of the Helium masternode code, and we will update this project each time a new release is issued, but without downloading the latest version of this project and using the -u parameter, the script will not update an existing Helium node that is already installed.
+The project is configured to use the latest official release of the sQuorum masternode code, and we will update this project each time a new release is issued, but without downloading the latest version of this project and using the -u parameter, the script will not update an existing sQuorum node that is already installed.
 
 ### Adding Masternodes on an existing installation
 
@@ -180,12 +180,12 @@ Login to your VPS and run the Nodemaster script:
 cd vps
 ```
 ```bash
-sudo ./install.sh -p helium -c *
+sudo ./install.sh -p squorum -c *
 ```
 
-Where `*`  is total number of masternode desired on the VPS. This adds folders and files to run new nodes. Running the script again doesn't touch the helium daemon or previous installed nodes.
+Where `*`  is total number of masternode desired on the VPS. This adds folders and files to run new nodes. Running the script again doesn't touch the squorum daemon or previous installed nodes.
 
-Edit `/etc/masternodes/helium_n*.conf` and add the `masternodeprivkey` for every new node. Copy assigned VPS_IP found in every .conf. `*` here is the number of every new node. Nodemaster numbers them helium_n1, helium_n2, helium_n3 etcetera.
+Edit `/etc/masternodes/squorum_n*.conf` and add the `masternodeprivkey` for every new node. Copy assigned VPS_IP found in every .conf. `*` here is the number of every new node. Nodemaster numbers them squorum_n1, squorum_n2, squorum_n3 etcetera.
 
 Edit your local masternode.conf and add a line for every new masternode with:
 
@@ -196,18 +196,18 @@ Save and restart the wallet.
 On your VPS, start every new masternode with:
 
 ```bash
-sudo systemctl enable helium_n*        
+sudo systemctl enable squorum_n*        
 ``` 
 ```bash
-sudo systemctl start helium_n*
+sudo systemctl start squorum_n*
 ```
 
 Start the new masternodes from the masternodes on your local wallet.
 
 
-## Configure Helium Wallet
+## Configure sQuorum Wallet
 ### Step1 - Create Collateral Transaction
-Once the wallet is open on your local computer, generate a new receive address and label it however you want to identify your masternode rewards (e.g., Helium-MN-1). This label will show up in your transactions each time you receive a block reward.
+Once the wallet is open on your local computer, generate a new receive address and label it however you want to identify your masternode rewards (e.g., sQuorum-MN-1). This label will show up in your transactions each time you receive a block reward.
 
 Click the Request payment button, and copy the address.
 
@@ -227,13 +227,13 @@ This will produce a masternode private key:
 
 <img src="docs/images/masternode_vps/step2-masternodegenkey.png" alt="generating masternode private key" class="inline"/>
 
-Copy this value to a text file. It will be needed for both the helium configuration file on the masternode VPS, and the masternode configuration file on the computer with the controlling Helium wallet.
+Copy this value to a text file. It will be needed for both the squorum configuration file on the masternode VPS, and the masternode configuration file on the computer with the controlling sQuorum wallet.
 
-If you are setting up multiple masternodes, repeat this step for each one. Each time you run the masternode genkey command it will give you a new private key--it doesn't matter which one you use, but it is important that it is unique for each masternode and that the VPS Helium configuration file and wallet masternode configuration file match (see below).
+If you are setting up multiple masternodes, repeat this step for each one. Each time you run the masternode genkey command it will give you a new private key--it doesn't matter which one you use, but it is important that it is unique for each masternode and that the VPS sQuorum configuration file and wallet masternode configuration file match (see below).
 
 ### Step 3 - Masternode Outputs
 
-This will give you the rest of the information you need to configure your masternode in your Helium wallet--the transaction ID and the output index.
+This will give you the rest of the information you need to configure your masternode in your sQuorum wallet--the transaction ID and the output index.
 
 ```bash
 masternode outputs
@@ -243,7 +243,7 @@ masternode outputs
 
 The long string of characters is the *Transaction ID* for your masternode collateral transaction. The number after the long string is the *Index*. Copy and paste these into the text file next to the private key you generated in Step 2.
 
-If you have multiple masternodes in the same wallet and have done the 1000 HLM transactions for each of them, masternode outputs will display transaction IDs and indexes for each one. You can choose which private key to go with each transaction ID and index, as long as they are all different, and you make sure the corresponding lines in masternode.conf and the VPS helium configuration files match (see below).
+If you have multiple masternodes in the same wallet and have done the 1000 HLM transactions for each of them, masternode outputs will display transaction IDs and indexes for each one. You can choose which private key to go with each transaction ID and index, as long as they are all different, and you make sure the corresponding lines in masternode.conf and the VPS squorum configuration files match (see below).
 
 ## End of installations
 When the script finishes, it will look similar to this:
@@ -252,12 +252,12 @@ When the script finishes, it will look similar to this:
 
 You only have a few steps remaining to complete your masternode configuration.
 ## Configure masternode configuration files
-Since this installation method supports multiple masternodes, the helium configuration files have a node number added to them (e.g., helium_n1.conf, helium_n2.conf), stored in the /etc/masternodes directory. If you have a single masternode on the VPS, you will only need to edit /etc/masternodes/helium_n1.conf.
+Since this installation method supports multiple masternodes, the squorum configuration files have a node number added to them (e.g., squorum_n1.conf, squorum_n2.conf), stored in the /etc/masternodes directory. If you have a single masternode on the VPS, you will only need to edit /etc/masternodes/squorum_n1.conf.
 
-To open helium_n1.conf for editing, enter these commands:
+To open squorum_n1.conf for editing, enter these commands:
 ```bash
 sudo apt-get install nano
-nano /etc/masternodes/helium_n1.conf
+nano /etc/masternodes/squorum_n1.conf
 ```
 The next step adds your masternode private key.
 
@@ -268,31 +268,31 @@ After typing the nano command, you will see something similar to this.
 
 <img src="docs/images/masternode_vps/insert-your-masternode-private-key.png" alt="add private key" class="inline"/>
 
-Copy the masternode private key from the text file you saved it in, and replace HERE_GOES_YOUR_MASTERNODE_KEY_FOR_MASTERNODE_helium_1 with that private key (It starts with a 7.
+Copy the masternode private key from the text file you saved it in, and replace HERE_GOES_YOUR_MASTERNODE_KEY_FOR_MASTERNODE_squorum_1 with that private key (It starts with a 7.
 
 While you have this file opened, copy the information that follows after masternodeaddr=, starting with the open bracket. This is the masternode's IPv6 address and port, and will be needed for the wallet's masternode.conf file.
 
 Once you have your masternode private key entered, press <font color="Green">Ctrl+X</font> .
 Then press <font color="Green">Y</font> to save, and press Enter to exit.
 
-Finally, close and restart your Helium wallet so that it will have the new masternode configuration.
+Finally, close and restart your sQuorum wallet so that it will have the new masternode configuration.
 
 ## Start your masternodes
-A script for starting all masternodes on the VPS has been created at /usr/local/bin/activate_masternodes_helium.sh.
+A script for starting all masternodes on the VPS has been created at /usr/local/bin/activate_masternodes_squorum.sh.
 Run this command after your masternode configuration written above.
 
 ```bash
-/usr/local/bin/activate_masternodes_helium
+/usr/local/bin/activate_masternodes_squorum
 ```
 
-The masternode daemons will start and begin loading the Helium blockchain.
+The masternode daemons will start and begin loading the sQuorum blockchain.
 
 ## Finishing Wallet Configuration & Activate Masternode
 To activate your nodes from your wallet, one of the last steps is to add a line for the masternode in the masternode.conf file. This file has the following format, with each value separated with a space:
 
 * alias IP:Port masternodeprivatekey collateral_transaction_ID collateral_output_index
-* alias - A short name you use to identify the masternode, you can choose this name as long as it is without spaces (e.g., Helium-MN-1)
-* IP:Port - The IP address (either IPv6 or IPv4) and the Port where the masternode is running, separated by a colon (:). You copied this from the helium.conf file on the VPS.
+* alias - A short name you use to identify the masternode, you can choose this name as long as it is without spaces (e.g., sQuorum-MN-1)
+* IP:Port - The IP address (either IPv6 or IPv4) and the Port where the masternode is running, separated by a colon (:). You copied this from the squorum.conf file on the VPS.
 * collateral_transaction_ID: This is the transaction ID you copied from masternode outputs.
 * collateral_output_index: This is the index you copied from masternode outputs.
 
@@ -301,24 +301,24 @@ Add the MN conf line, like the example below to the masternode.conf file. Save i
 
 example.
 ```
-Helium-MN-1 [2001:19f0:5001:ca6:2085::1]:11771 88xrxxxxxxxxxxxxxxxxxxxxxxx7K 6b4c9xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx7ee23 0
+sQuorum-MN-1 [2001:19f0:5001:ca6:2085::1]:11771 88xrxxxxxxxxxxxxxxxxxxxxxxx7K 6b4c9xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx7ee23 0
 ```
 
 The image below shows another example using an IPv4 IP address. If you followed this guide you are probably using an IPv6 address that looks like the line above.
 
 <img src="docs/images/masternode_vps/masternode-conf.png" alt="editing masternode.conf" class="inline"/>
 
-If you are running multiple masternodes, you need to add one of these lines for each masternode, and make sure the private key on each line matches the corresponding private key you entered in the VPS helium configuration file for that masternode.
+If you are running multiple masternodes, you need to add one of these lines for each masternode, and make sure the private key on each line matches the corresponding private key you entered in the VPS squorum configuration file for that masternode.
 ## Check syncing status of masternode
-The masternode cannot complete activation until it is fully synced with the Helium blockchain network.
+The masternode cannot complete activation until it is fully synced with the sQuorum blockchain network.
 
 To check the status of your masternode, please enter this command in the VPS terminal. 
 ```bash
-/usr/local/bin/helium-cli -conf=/etc/masternodes/helium_n1.conf getinfo
+/usr/local/bin/squorum-cli -conf=/etc/masternodes/squorum_n1.conf getinfo
 ```
 If you have multiple masternodes on the same VPS, you can change n1 to n2 etc. So for node number two type:
 ```bash
-/usr/local/bin/helium-cli -conf=/etc/masternodes/helium_n2.conf getinfo
+/usr/local/bin/squorum-cli -conf=/etc/masternodes/squorum_n2.conf getinfo
 ```
 Etcetera.
 
@@ -361,11 +361,11 @@ We're looking at the *blocks*, and need that to be the latest block in the block
 
 <img src="docs/images/masternode_vps/status.png" alt="checking syncing status" class="inline"/>
 
-Once your masternode has synced up to the latest block, go to next step. The syncing process may take 15-30 minutes or more as the Helium blockchain grows. You can keep checking progress with the command above, by pressing the up arrow and Enter to repeat it.
+Once your masternode has synced up to the latest block, go to next step. The syncing process may take 15-30 minutes or more as the sQuorum blockchain grows. You can keep checking progress with the command above, by pressing the up arrow and Enter to repeat it.
 
 ## Start Masternode
 
-Go to the debug console of your Helium wallet **[Tools->Debug Console]** and enter the following command, replacing **mn-alias** with the name of the masternode in the Alias column of the Masternodes tab:
+Go to the debug console of your sQuorum wallet **[Tools->Debug Console]** and enter the following command, replacing **mn-alias** with the name of the masternode in the Alias column of the Masternodes tab:
 
 ```
 startmasternode alias false mn-alias
@@ -379,7 +379,7 @@ If everything was setup correctly, after entering the command you will see somet
 "overall" : "Successfully started 1 masternodes, failed to start 0, total 1",
 "detail" : {
 "status" : {
-"alias" : "helium-mn01",
+"alias" : "squorum-mn01",
 "result" : "successful"
 }
 ```
@@ -389,9 +389,9 @@ If you are setting up multiple masternodes, repeat this for each one. You can no
 
 It should say ENABLED, and within an hour, the timer in the Active column should start increasing.
 
-Your Helium masternode is now set up and running! Depending on how many masternodes there are, it may take up to 72 hours before you see your first masternode reward--this is normal and rewards should come at more regular intervals after the first one.
+Your sQuorum masternode is now set up and running! Depending on how many masternodes there are, it may take up to 72 hours before you see your first masternode reward--this is normal and rewards should come at more regular intervals after the first one.
 
 <img src="docs/images/masternode_vps/reward.png" alt="rewards" class="inline"/>
 
 ## Issues and Questions
-Please open a GitHub Issue if there are problems with this installation method. If you can't figure it out just ask someone in the Helium channel.
+Please open a GitHub Issue if there are problems with this installation method. If you can't figure it out just ask someone in the sQuorum channel.
