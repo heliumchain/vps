@@ -16,7 +16,7 @@ Some notes and requirements:
 * Currently only Ubuntu 16.04 Linux is supported
 * This script needs to run as root or with sudo, the masternodes will and should not!
 * You may want to do the "Configure sQuorum Wallet" section first as it'll simplify masternode setup.
-* If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the HLM. It's faster and also makes sure the 1000HLM transfers stay in one piece.
+* If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the SQR. It's faster and also makes sure the 1000SQR transfers stay in one piece.
 * This script includes [pimpmynode](https://github.com/TeelaBrown/pimpmynode) by AKcryptoGUY and TeelaBrown. It will modify the VPS welcome message. If you don't want this, there is a 'vanilla' version of Nodemaster for sQuorum here: https://github.com/trollboxteela/vps
 
 This project was forked from https://github.com/phoreproject/vps (and comes with their screenshots) @marsmensch (Florian) is the primary author behind this VPS installation script for masternodes. If you would like to donate to him, you can use the BTC address below
@@ -172,7 +172,7 @@ The project is configured to use the latest official release of the sQuorum mast
 
 You can add masternodes to a VPS that already has several running. You can do this by following the below steps. It will not affect the masternodes that are already running on your VPS.
 
-Open your local wallet's debug console and run ```masternode genkey``` for each new masternode. Send the collateral transactions and note the ```masternode outputs``` for every transaction.
+Open your local wallet's debug console and run ```createmasternodekey``` for each new masternode. Send the collateral transactions and note the ```getmasternodeoutputs``` for every transaction.
 
 Login to your VPS and run the Nodemaster script:
 
@@ -213,7 +213,7 @@ Click the Request payment button, and copy the address.
 
 <img src="docs/images/masternode_vps/request.png" alt="making new address" class="inline"/>
 
-Now go to the Send tab, paste the copied address, and send *exactly* 1000 HLM to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one. Or better yet, use the Add Recipients button to send everything at once.
+Now go to the Send tab, paste the copied address, and send *exactly* 1000 SQR to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one. Or better yet, use the Add Recipients button to send everything at once.
 
 <img src="docs/images/masternode_vps/send.png" alt="sending 10kPHR" class="inline"/>
 
@@ -221,7 +221,7 @@ Now go to the Send tab, paste the copied address, and send *exactly* 1000 HLM to
 Go to the **[Tools > Debug Console]** and enter these commands below:
 
 ```bash
-masternode genkey
+createmasternodekey
 ```
 This will produce a masternode private key:
 
@@ -229,21 +229,21 @@ This will produce a masternode private key:
 
 Copy this value to a text file. It will be needed for both the squorum configuration file on the masternode VPS, and the masternode configuration file on the computer with the controlling sQuorum wallet.
 
-If you are setting up multiple masternodes, repeat this step for each one. Each time you run the masternode genkey command it will give you a new private key--it doesn't matter which one you use, but it is important that it is unique for each masternode and that the VPS sQuorum configuration file and wallet masternode configuration file match (see below).
+If you are setting up multiple masternodes, repeat this step for each one. Each time you run the createmasternodekey command it will give you a new private key--it doesn't matter which one you use, but it is important that it is unique for each masternode and that the VPS sQuorum configuration file and wallet masternode configuration file match (see below).
 
 ### Step 3 - Masternode Outputs
 
 This will give you the rest of the information you need to configure your masternode in your sQuorum wallet--the transaction ID and the output index.
 
 ```bash
-masternode outputs
+getmasternodeoutputs
 ```
 
 <img src="docs/images/masternode_vps/step3-masternodeoutputs.png" alt="getting transaction id" class="inline"/>
 
 The long string of characters is the *Transaction ID* for your masternode collateral transaction. The number after the long string is the *Index*. Copy and paste these into the text file next to the private key you generated in Step 2.
 
-If you have multiple masternodes in the same wallet and have done the 1000 HLM transactions for each of them, masternode outputs will display transaction IDs and indexes for each one. You can choose which private key to go with each transaction ID and index, as long as they are all different, and you make sure the corresponding lines in masternode.conf and the VPS squorum configuration files match (see below).
+If you have multiple masternodes in the same wallet and have done the 1000 SQR transactions for each of them, getmasternodeoutputs will display transaction IDs and indexes for each one. You can choose which private key to go with each transaction ID and index, as long as they are all different, and you make sure the corresponding lines in masternode.conf and the VPS squorum configuration files match (see below).
 
 ## End of installations
 When the script finishes, it will look similar to this:
@@ -293,8 +293,8 @@ To activate your nodes from your wallet, one of the last steps is to add a line 
 * alias IP:Port masternodeprivatekey collateral_transaction_ID collateral_output_index
 * alias - A short name you use to identify the masternode, you can choose this name as long as it is without spaces (e.g., sQuorum-MN-1)
 * IP:Port - The IP address (either IPv6 or IPv4) and the Port where the masternode is running, separated by a colon (:). You copied this from the squorum.conf file on the VPS.
-* collateral_transaction_ID: This is the transaction ID you copied from masternode outputs.
-* collateral_output_index: This is the index you copied from masternode outputs.
+* collateral_transaction_ID: This is the transaction ID you copied from getmasternodeoutputs.
+* collateral_output_index: This is the index you copied from getmasternodeoutputs.
 
 From the wallet menu, edit the local wallet **masternode.conf** file. **[Tools > Open Masternode Configuration File]**
 Add the MN conf line, like the example below to the masternode.conf file. Save it, and close the file. It will look like the following example, using your values for each of the fields above. A common mistake is mixing up the private key and the collateral transaction ID--to make this easier, the private key usually begins with an 8.
@@ -325,36 +325,27 @@ Etcetera.
 The output will look like this:
 ```
 {
-  "version": 150200,
-  "protocolversion": 71029,
+  "version": 1000000,
+  "protocolversion": 71030,
+  "services": "NETWORK/BLOOM/",
   "walletversion": 61000,
   "balance": 0.00000000,
   "zerocoinbalance": 0.00000000,
-  "blocks": 47508,
+  "blocks": 1001863,
   "timeoffset": 0,
-  "connections": 4,
+  "connections": 9,
   "proxy": "",
-  "difficulty": 24703.78796245168,
+  "difficulty": 18026.56727693974,
   "testnet": false,
-  "moneysupply": 8994482.77956084,
-  "zHLMsupply": {
-    "1": 0.00000000,
-    "5": 0.00000000,
-    "10": 0.00000000,
-    "50": 0.00000000,
-    "100": 0.00000000,
-    "500": 0.00000000,
-    "1000": 0.00000000,
-    "5000": 0.00000000,
-    "total": 0.00000000
-  },
-  "keypoololdest": 1537411480,
-  "keypoolsize": 1000,
-  "unlocked_until": 0,
+  "moneysupply": 13623134.86762197,
+  "keypoololdest": 1597191363,
+  "keypoolsize": 1001,
   "paytxfee": 0.00000000,
   "relayfee": 0.00010000,
   "staking status": "Staking Not Active",
   "errors": ""
+
+  }
 ```
 
 We're looking at the *blocks*, and need that to be the latest block in the blockchain. You can check your local wallet to see the latest block by hovering over the green check mark.
